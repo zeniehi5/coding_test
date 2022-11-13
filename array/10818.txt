@@ -1,0 +1,19 @@
+import java.io.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n = Integer.parseInt(reader.readLine());
+        int[] arr = new int[n];
+        String s = reader.readLine();
+        args = s.split(" ");
+        for(int i = 0; i < args.length; i++) {
+            arr[i] = Integer.parseInt(args[i]);
+        }
+        int max = Arrays.stream(arr).max().orElse(Integer.MAX_VALUE);
+        int min = Arrays.stream(arr).min().orElse(Integer.MIN_VALUE);
+        System.out.println(min + " " + max);
+    }
+}
