@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.ArrayList;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        String condition = reader.readLine();
+        String sequence = reader.readLine();
+        args = condition.split(" ");
+        int n = Integer.parseInt(args[0]);
+        int x = Integer.parseInt(args[1]);
+        int[] a = new int[n];
+        String[] stringArr = new String[n];
+        for(int i = 0; i < a.length; i++) {
+            stringArr = sequence.split(" ");
+            a[i] = Integer.parseInt(stringArr[i]);
+        }
+        ArrayList<Integer> arrList = new ArrayList<>();
+        for(int j = 0; j < a.length; j++) {
+            if(a[j] < x) {
+                arrList.add(a[j]);
+            }
+        }
+        for(int k = 0; k < arrList.size(); k++) {
+            writer.write(arrList.get(k) + " ");
+        }
+        writer.flush();
+        writer.close();
+    }
+}
