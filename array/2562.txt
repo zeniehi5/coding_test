@@ -1,0 +1,24 @@
+import java.io.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        int[] arr = new int[9];
+        for(int i = 0; i < 9; i++) {
+            arr[i] = Integer.parseInt(reader.readLine());
+        }
+        int max = Arrays.stream(arr).max().orElse(Integer.MAX_VALUE);
+        int index = 0;
+        for(int j = 0; j < arr.length; j++) {
+            if(arr[j] == max) {
+                index = j + 1;
+            }
+        }
+        writer.write(max + "\n");
+        writer.write(index + "");
+        writer.flush();
+        writer.close();
+    }
+}
