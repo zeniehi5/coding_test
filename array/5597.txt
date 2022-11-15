@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.ArrayList;
+import java.util.Comparator;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        ArrayList<Integer> arr = new ArrayList<>();
+        for(int i = 0; i < 28; i++) {
+            arr.add(Integer.parseInt(reader.readLine()));
+        }
+        ArrayList<Integer> result = new ArrayList<>();
+        for(int j = 0; j < 30; j++) {
+            if(!arr.contains(j+1)) {
+                result.add(j+1);
+            }
+        }
+        result.sort(Comparator.naturalOrder());
+        for(int k = 0; k < result.size(); k++) {
+            writer.write(result.get(k) + "\n");
+        }
+        writer.flush();
+        writer.close();
+    }
+}
