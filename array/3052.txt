@@ -1,0 +1,21 @@
+import java.io.*;
+import java.util.Arrays;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        int[] remain = new int[10];
+        int same = 0;
+        for(int i = 0; i < 10; i++) {
+            remain[i] = ((Integer.parseInt(reader.readLine())) % 42);
+        }
+        int[] result = distinct(remain);
+        writer.write(result.length + "");
+        writer.flush();
+        writer.close();
+    }
+    public static int[] distinct(int[] arr) {
+        return Arrays.stream(arr).distinct().toArray();
+    }
+}
