@@ -1,0 +1,29 @@
+import java.io.*;
+
+import static java.util.Arrays.stream;
+
+public class Main {
+    public static void main(String[] args) throws IOException {
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(System.out));
+        int subjects = Integer.parseInt(reader.readLine());
+        double[] scores = new double[subjects];
+        double[] fakes = new double[subjects];
+        args = (reader.readLine()).split(" ");
+        for(int i = 0; i < subjects; i++) {
+            scores[i] = Integer.parseInt(args[i]);
+        }
+        double maxScore = stream(scores).max().orElse(Integer.MAX_VALUE);
+        for(int j = 0; j < scores.length; j++) {
+            fakes[j] = (scores[j] / maxScore) * 100;
+        }
+        double total = 0;
+        for(int k = 0; k < fakes.length; k++) {
+            total += fakes[k];
+        }
+        double newAvg = total / subjects;
+        writer.write(newAvg + "");
+        writer.flush();
+        writer.close();
+    }
+}
